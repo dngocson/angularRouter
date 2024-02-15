@@ -8,6 +8,7 @@ import { ServersComponent } from './servers/servers.component';
 import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { canActivate, canActivateChild } from './auth-guard.service';
+import { CanComponentNavigateService } from './can-component-navigate.service';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'users',
+    canDeactivate: [CanComponentNavigateService],
     children: [
       {
         path: ':id/:name',

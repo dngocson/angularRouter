@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { CanComponentDeactivate } from '../can-component-navigate.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
 })
-export class UsersComponent {
+export class UsersComponent implements CanComponentDeactivate {
   users = [
     {
       id: 1,
@@ -20,4 +21,7 @@ export class UsersComponent {
       name: 'Chris',
     },
   ];
+  confirm(): boolean {
+    return false;
+  }
 }
